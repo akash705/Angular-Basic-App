@@ -15,17 +15,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './components/posts/posts.component';
 import { RouterModule, Routes } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
+import { SinglePostComponent } from './components/single-post/single-post.component';
 
 const appRoutes: Routes = [
   { path: '', component: PostsComponent },
-  { path: 'singlePost/:id',      component: PostComponent },
+  { path: 'singlePost/:id',      component:SinglePostComponent },
 ];
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     PostComponent,
-    PostsComponent
+    PostsComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,

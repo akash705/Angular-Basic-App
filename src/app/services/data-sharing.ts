@@ -12,7 +12,10 @@ export class dataShare{
         // console.log('services embeded');
     }
     request(){
+
        return new Promise((res,rej)=>{
+        if(this.masterData.originalData.length)
+            return res({status:true,data:[...this.masterData.filterData]});
         this.httpClient.get('https://jsonplaceholder.typicode.com/posts').subscribe(data=>{
             // this.masterData.originalData= [...data];
             if(data){
@@ -38,6 +41,10 @@ export class dataShare{
     }
     filterData(){
 
+    }
+    get(i){
+        
+        return this.masterData.originalData[i] || null;
     }
 
 

@@ -16,11 +16,10 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
     this.subscriber  = fromEvent(this.inputText.nativeElement,'input');
-    this.subscriber.pipe(debounceTime(500),switchMap(data=>[1,2,3]))
-    .subscribe((data,len)=>{
-      console.log(data);
-    },()=>{},(complete)=>{
-    })
+    this.subscriber.pipe(debounceTime(500), switchMap(data =>this._dataShare.filter(this.searchBar)))
+      .subscribe((data, len) => {
+        console.log(data);
+      }, () => {}, (complete) => {})
   }
   
 
