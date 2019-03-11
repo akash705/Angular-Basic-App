@@ -14,6 +14,8 @@ import { PostComponent } from './components/posts/post/post.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './components/posts/posts.component';
 import { RouterModule, Routes } from '@angular/router';
+import {MatCardModule} from '@angular/material/card';
+
 const appRoutes: Routes = [
   { path: '', component: PostsComponent },
   { path: 'post/:id',      component: PostComponent },
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
     FormsModule,
     MatInputModule,
     HttpClientModule,
+    MatCardModule,
     RouterModule.forRoot(
       appRoutes,
     )
