@@ -13,7 +13,6 @@ export class PostComponent implements OnInit {
   ngOnInit() {
   }
   singlePost(){
-      console.log('singlePost',this.data);
       this.router.navigate([`/singlePost/${this.data.id}`],{
         
       })

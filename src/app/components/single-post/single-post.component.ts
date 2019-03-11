@@ -20,7 +20,7 @@ private data:any;
 
   ngOnInit() {
     this.id = this._activatedRoute.snapshot.params.id;
-    // console.log(this.id);
+    // 
     this.data = this._dataShare.get(this.id);
     
     if(!this.data){
