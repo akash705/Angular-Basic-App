@@ -18,7 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 
 const appRoutes: Routes = [
   { path: '', component: PostsComponent },
-  { path: 'post/:id',      component: PostComponent },
+  { path: 'singlePost/:id',      component: PostComponent },
 ];
 @NgModule({
   declarations: [
