@@ -16,6 +16,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { RouterModule, Routes } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { SinglePostComponent } from './components/single-post/single-post.component';
+import { ShowDirective } from './show.directive';
 
 const appRoutes: Routes = [
   { path: '', component: PostsComponent },
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     NavBarComponent,
     PostComponent,
     PostsComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    ShowDirective
   ],
   imports: [
     BrowserModule,
