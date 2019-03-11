@@ -1,3 +1,4 @@
+import { accessing } from './components/guards/accessing';
 import { dataShare } from './services/data-sharing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -20,8 +21,8 @@ import { ShowDirective } from './show.directive';
 
 const appRoutes: Routes = [
   { path: '', component: PostsComponent },
-  { path: 'singlePost',   children:[
-        {path:'',redirectTo:'/',pathMatch:'full'},
+  { path: 'singlePost',canActivate:[accessing],children:[
+        {path:'',redirectTo:'/',pathMatch:'full',canActivate:[accessing]},
         {path:':id',component:SinglePostComponent }
     ]     
   },
@@ -51,7 +52,8 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
-    dataShare
+    dataShare,
+    accessing
   ],
   bootstrap: [AppComponent]
 })

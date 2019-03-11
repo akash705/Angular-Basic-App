@@ -24,7 +24,8 @@ private data:any;
     this.data = this._dataShare.get(this.id);
     
     if(!this.data){
-      this._Router.navigate(['/']);  
+      // this._Router.navigate(['/']);  
+      console.log('no data');
     }
   }
   back(){

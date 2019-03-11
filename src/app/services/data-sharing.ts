@@ -27,6 +27,9 @@ export class dataShare{
         })
        }) 
     }
+    isDataAvailable(){
+        return !!this.masterData.originalData.length;
+    }
     filter(str){
         return new Observable((subscriber)=>{
             this.masterData.filterData= [...this.masterData.originalData.filter(data=>data.title.includes(str))]
@@ -43,7 +46,6 @@ export class dataShare{
 
     }
     get(i){
-        
         return this.masterData.originalData[i] || null;
     }
 
