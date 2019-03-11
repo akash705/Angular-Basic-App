@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-
+import { Observable, Subject } from 'rxjs';
+import mySubject from './subject';
 @Injectable()
 export class dataShare{
     private masterData={
@@ -12,7 +12,6 @@ export class dataShare{
         // console.log('services embeded');
     }
     request(){
-
        return new Promise((res,rej)=>{
         if(this.masterData.originalData.length)
             return res({status:true,data:[...this.masterData.filterData]});
@@ -30,8 +29,9 @@ export class dataShare{
     }
     filter(str){
         return new Observable((subscriber)=>{
+            this.masterData.filterData= [...this.masterData.originalData.filter(data=>data.title.includes(str))]
             subscriber.next(
-                this.masterData.originalData.filter(data=>data.title.includes(str))
+                    this.masterData.filterData
             );
             subscriber.complete();
         });
