@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import mySubject from './subject';
@@ -12,10 +12,13 @@ export class dataShare{
         // console.log('services embeded');
     }
     request(){
+        
        return new Promise((res,rej)=>{
         if(this.masterData.originalData.length)
             return res({status:true,data:[...this.masterData.filterData]});
-        this.httpClient.get('https://jsonplaceholder.typicode.com/posts').subscribe(data=>{
+        var headers= new HttpHeaders();
+        headers.append('authToken','xyzyzyz');
+        this.httpClient.get('https://jsonplaceholder.typicode.com/posts',{headers}).subscribe(data=>{
             // this.masterData.originalData= [...data];
             if(data){
                 this.masterData.originalData=Object.assign([],data);
