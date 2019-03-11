@@ -16,7 +16,9 @@ private data:any;
     ,private _dataShare:dataShare,
     private _Router:Router,
     private _location:Location
-    ) { }
+    ) { 
+      console.log('singlePost component loaded');
+    }
 
   ngOnInit() {
     this.id = this._activatedRoute.snapshot.params.id;

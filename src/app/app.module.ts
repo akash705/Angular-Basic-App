@@ -16,16 +16,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './components/posts/posts.component';
 import { RouterModule, Routes } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
-import { SinglePostComponent } from './components/single-post/single-post.component';
+// import { SinglePostComponent } from './components/single-post/single-post.component';
 import { ShowDirective } from './show.directive';
 
 const appRoutes: Routes = [
   { path: '', component: PostsComponent },
-  { path: 'singlePost',canActivate:[accessing],children:[
-        {path:'',redirectTo:'/',pathMatch:'full',canActivate:[accessing]},
-        {path:':id',component:SinglePostComponent }
-    ]     
-  },
+  // { path: 'singlePost',canActivate:[accessing],children:[
+  //       {path:'',redirectTo:'/',pathMatch:'full',canActivate:[accessing]},
+  //       {path:':id',loadChildren:'./components/single-post/single-post.module' }
+  //   ]     
+  // },
+  {path:'singlePost/:id',loadChildren:'./components/single-post/single-post.module#SinglePostModule'},
   {path:'**',redirectTo:'/'}
 ];
 @NgModule({
@@ -34,12 +35,10 @@ const appRoutes: Routes = [
     NavBarComponent,
     PostComponent,
     PostsComponent,
-    SinglePostComponent,
     ShowDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,
     MatToolbarModule,
